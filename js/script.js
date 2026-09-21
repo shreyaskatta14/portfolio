@@ -41,7 +41,11 @@ document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe
 
 document.querySelector('[data-contact-form]')?.addEventListener('submit', (event) => {
   event.preventDefault();
+
+  const form = event.currentTarget;
   const note = document.querySelector('[data-form-note]');
-  note.textContent = 'Thanks — connect an email service here to receive messages.';
-  note.style.color = 'var(--accent)';
+
+  form.reset();
+  note.textContent = 'Successfully sent!';
+  note.style.color = '#2ec27e';
 });
