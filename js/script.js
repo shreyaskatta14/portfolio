@@ -38,17 +38,6 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
   });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
-
-document.querySelector('[data-contact-form]')?.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  const form = event.currentTarget;
-  const note = document.querySelector('[data-form-note]');
-
-  form.reset();
-  note.textContent = 'Form is ready to connect to an email service.';
-  note.style.color = '#aebbb1';
-});
 // Contact form
 const contactForm = document.querySelector('[data-contact-form]');
 const formNote = document.querySelector('[data-form-note]');
