@@ -49,3 +49,54 @@ document.querySelector('[data-contact-form]')?.addEventListener('submit', (event
   note.textContent = 'Form is ready to connect to an email service.';
   note.style.color = '#aebbb1';
 });
+// Contact form
+const contactForm = document.querySelector('[data-contact-form]');
+const formNote = document.querySelector('[data-form-note]');
+
+contactForm?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+
+  const name = contactForm.querySelector('#name').value.trim();
+  const email = contactForm.querySelector('#email').value.trim();
+  const message = contactForm.querySelector('#message').value.trim();
+
+  if (!name || !email || !message) {
+    formNote.textContent = 'Please fill in all fields.';
+    return;
+  }
+
+  submitButton.disabled = true;
+  submitButton.innerHTML = 'Sending...';
+
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Failed to send message.');
+    }
+
+    formNote.textContent = 'Message sent successfully!';
+    contactForm.reset();
+
+  } catch (error) {
+    console.error(error);
+    formNote.textContent = 'Something went wrong. Please try again.';
+  } finally {
+    submitButton.disabled = false;
+    submitButton.innerHTML = 'Send Message <span>↗</span>';
+  }
+});
