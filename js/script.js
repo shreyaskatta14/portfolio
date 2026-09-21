@@ -46,6 +46,6 @@ document.querySelector('[data-contact-form]')?.addEventListener('submit', (event
   const note = document.querySelector('[data-form-note]');
 
   form.reset();
-  note.textContent = 'Successfully sent!';
-  note.style.color = '#2ec27e';
+  note.textContent = 'Form is ready to connect to an email service.';
+  note.style.color = '#aebbb1';
 });
