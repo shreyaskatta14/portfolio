@@ -1,21 +1,42 @@
 # Katta Shreyas Portfolio
 
-A static, responsive portfolio for Katta Shreyas, a 3rd-year B.Tech Computer Science & Engineering student.
+A responsive personal portfolio for Katta Shreyas, a 3rd-year B.Tech Computer Science & Engineering student.
 
-## Run locally
+## Live Website
 
-Open `index.html` directly in a browser, or serve the folder with any static server. No build step or dependencies are required.
+[Visit Portfolio](https://portfolio-cyan-two-m8en7rxb59.vercel.app/)
 
-## About this portfolio
+## About
 
-This portfolio presents my education, technical skills, learning goals, and current project work as a Computer Science and Engineering student.
+This portfolio showcases my:
 
-The contact form is currently a front-end interface and does not send messages yet.
+- Education
+- Technical skills
+- Projects
+- Data Structures & Algorithms practice
+- Web development experience
+- Coding profiles
+- Contact information
 
-## Project structure
+The portfolio also includes a functional contact form that allows visitors to send messages directly to my email.
 
-- `index.html` - portfolio content and page structure
-- `css/style.css` - layout, responsive styles, and theme styles
-- `js/script.js` - navigation, theme toggle, and animations
-- `assets/images/` - portfolio images
-- `assets/resume/KATTA_SHREYAS_Resume.pdf` - resume
+## Contact Form
+
+The contact form uses:
+
+- Vercel Serverless Functions
+- Resend API
+- Environment variables for secure API key management
+
+### Contact flow
+
+```text
+Visitor
+   ↓
+Contact Form
+   ↓
+Vercel Serverless API
+   ↓
+Resend API
+   ↓
+Email
